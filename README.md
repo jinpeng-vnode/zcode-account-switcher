@@ -1,10 +1,38 @@
-# ZCode Account Switcher / ZCode 账号切换器
+# ZCode Account Switcher / ZCode 智谱账号切换器
 
-ZCode Account Switcher is a local Electron desktop tool for switching multiple ZCode accounts. It saves and restores ZCode credential snapshots so you can manage different ZCode logins on the same Windows machine.
+ZCode Account Switcher is a local Electron desktop tool for switching multiple ZCode accounts, including ZCode logins connected through BigModel, Z.ai, Zhipu AI, 智谱清言 / ChatGLM, GLM Coding Plan, or the Zhipu open platform.
 
-ZCode 账号切换器是一个本地 Electron 桌面工具，用于在同一台 Windows 电脑上保存、管理和切换多个 ZCode 登录账号。
+ZCode 智谱账号切换器是一个本地 Electron 桌面工具，用于在同一台 Windows 电脑上保存、管理和切换多个 ZCode 登录账号，适用于通过 BigModel、Z.ai、智谱 AI、智谱清言 / ChatGLM、GLM Coding Plan、智谱开放平台绑定的 ZCode 账号。
 
-**Search keywords / 搜索关键词**：ZCode account switcher, ZCode account manager, ZCode multiple accounts, ZCode login switcher, ZCode credential switcher, ZCode 账号切换, ZCode 多账号, ZCode 账号管理, ZCode 凭据切换, ZCode 登录切换, Electron account switcher.
+**Search keywords / 搜索关键词**：ZCode account switcher, ZCode account manager, ZCode multiple accounts, ZCode login switcher, ZCode credential switcher, BigModel account switcher, BigModel.cn, Z.ai account switcher, ZAI account switcher, Zhipu AI account switcher, ChatGLM account switcher, GLM Coding Plan, ZCode 账号切换, ZCode 多账号, ZCode 账号管理, ZCode 凭据切换, ZCode 登录切换, 智谱账号切换, 智谱清言账号切换, 智谱 AI 多账号, BigModel 账号切换, Z.ai 账号切换, GLM Coding Plan 账号切换.
+
+## What It Is For / 这个工具解决什么问题
+
+ZCode can connect model services through BigModel and Z.ai. Official ZCode documentation describes BigModel as the Zhipu open platform route for GLM Coding Plan, model resource packages, and prepaid balance, while Z.ai is the international/overseas account route. This tool focuses on the local ZCode desktop credential file and makes it easier to keep separate account snapshots for those login routes.
+
+ZCode 官方文档里有 BigModel 和 Z.ai 两种智谱相关连接方式：BigModel 面向智谱开放平台、GLM Coding Plan、模型资源包和充值余额；Z.ai 面向海外/国际账号路径。本工具聚焦本机 ZCode 桌面端凭据文件，方便你为这些登录路径保存多个账号快照并快速切换。
+
+Common scenarios:
+
+常见场景：
+
+- Switch between different ZCode accounts.
+- Switch between BigModel.cn domestic accounts and Z.ai international accounts.
+- Manage ZCode accounts tied to 智谱 AI / 智谱清言 / ChatGLM / GLM Coding Plan.
+- Keep separate snapshots for personal testing, learning, or research accounts.
+
+- 在多个 ZCode 账号之间切换。
+- 在 BigModel.cn 国内账号和 Z.ai 国际账号之间切换。
+- 管理绑定智谱 AI、智谱清言、ChatGLM、GLM Coding Plan 的 ZCode 账号。
+- 为个人测试、学习交流、研究用途的账号保存独立快照。
+
+Related official docs:
+
+相关官方文档：
+
+- ZCode API Key Setup: https://zcode.z.ai/en/docs/configuration
+- ZCode API key 配置: https://zcode.z.ai/cn/docs/legacy/configuration
+- Z.ai / Zhipu AI: https://www.zhipuai.cn/en/
 
 ## Download / 下载
 
@@ -25,14 +53,14 @@ ZCode.Account.Switcher.Setup.0.1.0.exe
 ## Features / 功能
 
 - Detect the currently logged-in ZCode account.
-- Save multiple ZCode account credential snapshots.
+- Save multiple ZCode / BigModel / Z.ai account credential snapshots.
 - Switch between saved ZCode accounts with one click.
 - Create an automatic backup before restoring another account.
 - Start or stop the ZCode desktop client from the tool.
 - Local-first Electron app; credential snapshots stay on your own machine.
 
 - 自动识别当前 ZCode 登录账号。
-- 保存多个 ZCode 账号凭据快照。
+- 保存多个 ZCode / BigModel / Z.ai 账号凭据快照。
 - 一键切换已保存的 ZCode 账号。
 - 切换前自动备份当前凭据。
 - 可从工具内启动或关闭 ZCode 桌面客户端。
