@@ -1,0 +1,10 @@
+node_modules/
+.playwright-mcp/
+.zcode-inspect/
+bigmodel-subscription-monitor-extension/
+dist/
+out/
+*.log
+ui-status-*.png
+ui-release-*.png
+zcode-lucide-preview.png

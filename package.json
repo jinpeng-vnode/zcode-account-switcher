@@ -1,0 +1,66 @@
+{
+  "name": "zcode-account-switcher",
+  "version": "0.1.0",
+  "description": "ZCode 账号切换器 / Electron account switcher for ZCode desktop client.",
+  "keywords": [
+    "zcode",
+    "zcode account switcher",
+    "zcode 账号切换",
+    "electron",
+    "account switcher"
+  ],
+  "author": "ZCode Account Switcher",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer/renderer.js && node --check preview-server.js && node --check scripts/start-electron.js && node --check scripts/dev-electron.js",
+    "dev": "node scripts/dev-electron.js",
+    "pack": "electron-builder --dir",
+    "preview": "node preview-server.js",
+    "release:win": "electron-builder --win",
+    "start": "node scripts/start-electron.js"
+  },
+  "build": {
+    "appId": "com.zcode.accountswitcher",
+    "productName": "ZCode Account Switcher",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "node_modules/lucide/dist/umd/lucide.min.js"
+    ],
+    "asar": true,
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^39.2.7",
+    "electron-builder": "^26.15.3",
+    "electronmon": "^2.0.4"
+  },
+  "dependencies": {
+    "lucide": "^1.21.0"
+  }
+}

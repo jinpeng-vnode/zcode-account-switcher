@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZCode Account Switcher</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="drag-region"></div>
+
+    <main class="app-shell">
+      <!-- Floating Capsule SideNav -->
+      <nav class="side-nav">
+        <div class="nav-brand">
+          <div class="brand-logo"><i data-lucide="rocket"></i></div>
+        </div>
+
+        <div class="nav-items">
+          <button class="nav-item active" title="账号">
+            <i data-lucide="users"></i>
+            <span class="tooltip">账号管理</span>
+          </button>
+          <button class="nav-item" title="概览">
+            <i data-lucide="layout-grid"></i>
+            <span class="tooltip">概览</span>
+          </button>
+          <button class="nav-item" title="状态">
+            <i data-lucide="gauge"></i>
+            <span class="tooltip">运行状态</span>
+          </button>
+        </div>
+
+        <div class="nav-footer">
+          <div id="statusIndicator" class="status-indicator ok">
+            <i data-lucide="circle-check"></i>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <section class="main-wrapper">
+        <!-- Page Header -->
+        <header class="page-top-strip">
+          <span class="page-top-strip-label">ZCode 账号管理</span>
+          <div class="page-tabs">
+            <button class="page-tab active"><i data-lucide="users"></i><span>账号总览</span></button>
+            <button class="page-tab"><i data-lucide="fingerprint"></i><span>凭据状态</span></button>
+          </div>
+        </header>
+
+        <!-- Toolbar -->
+        <section class="toolbar">
+          <div class="toolbar-left">
+            <div class="search-box">
+              <i data-lucide="search" class="search-icon"></i>
+              <input type="search" placeholder="搜索账号..." />
+            </div>
+            <div class="view-switcher">
+              <button class="view-btn"><i data-lucide="list"></i></button>
+              <button class="view-btn active"><i data-lucide="layout-grid"></i></button>
+            </div>
+          </div>
+          <div class="toolbar-right">
+            <button id="createBtn" class="btn-icon is-primary" title="保存当前"><i data-lucide="plus"></i></button>
+            <button id="refreshBtnTop" class="btn-icon" title="刷新"><i data-lucide="refresh-cw"></i></button>
+            <button id="launchBtnTop" class="btn-icon" title="启动 ZCode"><i data-lucide="play"></i></button>
+            <button id="stopBtn" class="btn-icon is-danger" title="关闭 ZCode"><i data-lucide="power"></i></button>
+          </div>
+        </section>
+
+        <!-- Current Account Panel -->
+        <section id="accountPanel" class="account-panel"></section>
+
+        <!-- Profiles -->
+        <section class="profiles-section">
+          <div class="panel-head">
+            <h2>账号池</h2>
+            <span id="syncHint" class="sync-hint">自动同步</span>
+          </div>
+          <div id="profiles" class="profile-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="profileTemplate">
+      <article class="profile-card">
+        <div class="profile-main">
+          <h3></h3>
+          <p></p>
+        </div>
+        <div class="profile-badges"></div>
+        <div class="profile-actions">
+          <label class="launch-toggle">
+            <input type="checkbox" checked />
+            切换后启动
+          </label>
+          <div class="card-actions">
+            <button data-action="switch" class="card-action-btn success" title="切换"><i data-lucide="play"></i></button>
+            <button data-action="update" class="card-action-btn" title="更新"><i data-lucide="refresh-cw"></i></button>
+            <button data-action="delete" class="card-action-btn danger" title="删除"><i data-lucide="trash-2"></i></button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="../../node_modules/lucide/dist/umd/lucide.min.js"></script>
+    <script src="./renderer.js"></script>
+  </body>
+</html>
