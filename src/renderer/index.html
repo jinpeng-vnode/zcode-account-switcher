@@ -18,17 +18,17 @@
         </div>
 
         <div class="nav-items">
-          <button class="nav-item active" title="账号">
+          <button class="nav-item active" title="账号" data-i18n-title="nav.accountsTitle">
             <i data-lucide="users"></i>
-            <span class="tooltip">账号管理</span>
+            <span class="tooltip" data-i18n="nav.accounts">账号管理</span>
           </button>
-          <button class="nav-item" title="概览">
+          <button class="nav-item" title="概览" data-i18n-title="nav.overviewTitle">
             <i data-lucide="layout-grid"></i>
-            <span class="tooltip">概览</span>
+            <span class="tooltip" data-i18n="nav.overview">概览</span>
           </button>
-          <button class="nav-item" title="状态">
+          <button class="nav-item" title="状态" data-i18n-title="nav.statusTitle">
             <i data-lucide="gauge"></i>
-            <span class="tooltip">运行状态</span>
+            <span class="tooltip" data-i18n="nav.status">运行状态</span>
           </button>
         </div>
 
@@ -43,10 +43,10 @@
       <section class="main-wrapper">
         <!-- Page Header -->
         <header class="page-top-strip">
-          <span class="page-top-strip-label">ZCode 账号管理</span>
+          <span class="page-top-strip-label" data-i18n="header.title">ZCode 账号管理</span>
           <div class="page-tabs">
-            <button class="page-tab active"><i data-lucide="users"></i><span>账号总览</span></button>
-            <button class="page-tab"><i data-lucide="fingerprint"></i><span>凭据状态</span></button>
+            <button class="page-tab active"><i data-lucide="users"></i><span data-i18n="tabs.accounts">账号总览</span></button>
+            <button class="page-tab"><i data-lucide="fingerprint"></i><span data-i18n="tabs.credentials">凭据状态</span></button>
           </div>
         </header>
 
@@ -55,7 +55,7 @@
           <div class="toolbar-left">
             <div class="search-box">
               <i data-lucide="search" class="search-icon"></i>
-              <input type="search" placeholder="搜索账号..." />
+              <input type="search" placeholder="搜索账号..." data-i18n-placeholder="toolbar.search" />
             </div>
             <div class="view-switcher">
               <button class="view-btn"><i data-lucide="list"></i></button>
@@ -63,10 +63,11 @@
             </div>
           </div>
           <div class="toolbar-right">
-            <button id="createBtn" class="btn-icon is-primary" title="保存当前"><i data-lucide="plus"></i></button>
-            <button id="refreshBtnTop" class="btn-icon" title="刷新"><i data-lucide="refresh-cw"></i></button>
-            <button id="launchBtnTop" class="btn-icon" title="启动 ZCode"><i data-lucide="play"></i></button>
-            <button id="stopBtn" class="btn-icon is-danger" title="关闭 ZCode"><i data-lucide="power"></i></button>
+            <button id="languageBtn" class="btn-icon btn-language" title="Switch language" data-i18n-title="toolbar.language"><i data-lucide="languages"></i><span id="languageLabel">EN</span></button>
+            <button id="createBtn" class="btn-icon is-primary" title="保存当前" data-i18n-title="toolbar.saveCurrent"><i data-lucide="plus"></i></button>
+            <button id="refreshBtnTop" class="btn-icon" title="刷新" data-i18n-title="toolbar.refresh"><i data-lucide="refresh-cw"></i></button>
+            <button id="launchBtnTop" class="btn-icon" title="启动 ZCode" data-i18n-title="toolbar.launch"><i data-lucide="play"></i></button>
+            <button id="stopBtn" class="btn-icon is-danger" title="关闭 ZCode" data-i18n-title="toolbar.stop"><i data-lucide="power"></i></button>
           </div>
         </section>
 
@@ -76,8 +77,8 @@
         <!-- Profiles -->
         <section class="profiles-section">
           <div class="panel-head">
-            <h2>账号池</h2>
-            <span id="syncHint" class="sync-hint">自动同步</span>
+            <h2 data-i18n="profiles.title">账号池</h2>
+            <span id="syncHint" class="sync-hint" data-i18n="sync.auto">自动同步</span>
           </div>
           <div id="profiles" class="profile-list"></div>
         </section>
@@ -94,12 +95,12 @@
         <div class="profile-actions">
           <label class="launch-toggle">
             <input type="checkbox" checked />
-            切换后启动
+            <span data-i18n="profile.launchAfter">切换后启动</span>
           </label>
           <div class="card-actions">
-            <button data-action="switch" class="card-action-btn success" title="切换"><i data-lucide="play"></i></button>
-            <button data-action="update" class="card-action-btn" title="更新"><i data-lucide="refresh-cw"></i></button>
-            <button data-action="delete" class="card-action-btn danger" title="删除"><i data-lucide="trash-2"></i></button>
+            <button data-action="switch" class="card-action-btn success" title="切换" data-i18n-title="profile.switch"><i data-lucide="play"></i></button>
+            <button data-action="update" class="card-action-btn" title="更新" data-i18n-title="profile.update"><i data-lucide="refresh-cw"></i></button>
+            <button data-action="delete" class="card-action-btn danger" title="删除" data-i18n-title="profile.delete"><i data-lucide="trash-2"></i></button>
           </div>
         </div>
       </article>

@@ -506,6 +506,19 @@ button { border: 0; background: none; cursor: pointer; }
   height: 16px;
 }
 
+.btn-language {
+  width: auto;
+  min-width: 58px;
+  gap: 6px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.btn-language span {
+  line-height: 1;
+}
+
 .btn-icon:hover:not(:disabled) {
   background: var(--bg-hover);
   color: var(--text-primary);
