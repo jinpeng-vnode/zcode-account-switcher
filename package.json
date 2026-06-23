@@ -10,6 +10,7 @@
     "account switcher"
   ],
   "author": "ZCode Account Switcher",
+  "license": "MIT",
   "main": "src/main.js",
   "private": true,
   "scripts": {
@@ -28,6 +29,8 @@
     },
     "files": [
       "src/**/*",
+      "LICENSE",
+      "README.md",
       "package.json",
       "node_modules/lucide/dist/umd/lucide.min.js"
     ],
