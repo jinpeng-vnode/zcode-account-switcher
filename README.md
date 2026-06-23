@@ -1,5 +1,9 @@
 # ZCode 智谱账号切换器 / ZCode Account Switcher
 
+<p align="center">
+  <img src="build/icon.png" width="128" height="128" alt="ZCode Account Switcher icon">
+</p>
+
 ZCode 智谱账号切换器是一个本地 Electron 桌面工具，用于在同一台 Windows 电脑上保存、管理和切换多个 ZCode 登录账号，适用于通过 BigModel、Z.ai、智谱 AI、智谱清言 / ChatGLM、GLM Coding Plan、智谱开放平台绑定的 ZCode 账号。
 
 **搜索关键词**：ZCode 账号切换、ZCode 多账号、ZCode 账号管理、ZCode 凭据切换、ZCode 登录切换、智谱账号切换、智谱清言账号切换、智谱 AI 多账号、BigModel 账号切换、Z.ai 账号切换、GLM Coding Plan 账号切换、ZCode account switcher、BigModel account switcher、Z.ai account switcher、ChatGLM account switcher。
