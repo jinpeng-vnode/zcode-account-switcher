@@ -2,7 +2,6 @@
 
 下载建议：
 - `ZCode Account Switcher Setup 0.1.0.exe`：Windows 安装包，推荐普通用户下载。
-- `ZCode Account Switcher 0.1.0.exe`：Windows 便携版，无需安装。
 
 主要功能：
 - 自动识别当前 ZCode 登录账号。
