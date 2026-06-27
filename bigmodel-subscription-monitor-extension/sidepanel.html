@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font: 13px/1.5 system-ui, sans-serif; padding: 12px; background: #f8fafc; color: #1e293b; }
+h1 { font-size: 15px; margin-bottom: 12px; }
+
+.timer-box { background: #0f172a; color: #22d3ee; border-radius: 8px; padding: 16px; text-align: center; margin-bottom: 12px; }
+.timer-box .label { font-size: 11px; color: #94a3b8; margin-bottom: 4px; }
+.timer-box .countdown { font: bold 28px "JetBrains Mono", "Fira Code", monospace; letter-spacing: 1px; }
+
+.status-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding: 8px 12px; border-radius: 6px; background: #fff; border: 1px solid #e2e8f0; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; }
+.status-dot.active { background: #22c55e; animation: pulse 1.5s infinite; }
+.status-dot.idle { background: #94a3b8; }
+.status-text { font-size: 13px; font-weight: 500; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.section { margin-bottom: 12px; }
+.section-title { font-size: 11px; font-weight: 600; text-transform: uppercase; color: #64748b; margin-bottom: 6px; }
+
+.products { list-style: none; }
+.products li { display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 5px; margin-bottom: 4px; font-size: 12px; }
+.badge { font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+.badge.available { background: #dcfce7; color: #166534; }
+.badge.soldout { background: #fee2e2; color: #991b1b; }
+
+.logs { max-height: 160px; overflow-y: auto; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px; font: 11px/1.6 monospace; color: #475569; }
+.logs:empty::after { content: "暂无日志"; color: #94a3b8; }
+
+.btn { width: 100%; padding: 10px; border: none; border-radius: 6px; font: bold 13px system-ui; cursor: pointer; margin-top: 8px; }
+.btn.start { background: #059669; color: #fff; }
+.btn.stop { background: #dc2626; color: #fff; }
+</style>
+</head>
+<body>
+<h1>BigModel 抢购监控</h1>
+
+<div class="timer-box">
+  <div class="label">距下次刷新</div>
+  <div class="countdown" id="countdown">--:--:---</div>
+</div>
+
+<div class="status-row">
+  <span class="status-dot idle" id="dot"></span>
+  <span class="status-text" id="statusText">等待启动</span>
+</div>
+
+<div class="section">
+  <div class="section-title">套餐状态</div>
+  <ul class="products" id="products"><li style="color:#94a3b8">等待检测...</li></ul>
+</div>
+
+<div class="section">
+  <div class="section-title">操作日志</div>
+  <div class="logs" id="logs"></div>
+</div>
+
+<button class="btn start" id="btn">开始抢购</button>
+<script src="sidepanel.js"></script>
+</body>
+</html>

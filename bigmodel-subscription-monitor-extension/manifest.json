@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "BigModel 抢购",
+  "version": "1.1.0",
+  "description": "自动刷新检测可买状态，发现可买就自动点击购买",
+  "permissions": ["storage", "notifications", "activeTab", "tabs", "sidePanel"],
+  "host_permissions": ["https://bigmodel.cn/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://bigmodel.cn/glm-coding*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["hook.js"],
+      "matches": ["https://bigmodel.cn/*"]
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "BigModel 抢购",
+    "default_popup": "popup.html"
+  }
+}

@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body { width: 260px; padding: 16px; font: 14px system-ui, sans-serif; }
+button { width: 100%; padding: 10px; border: none; border-radius: 6px; font: bold 14px inherit; cursor: pointer; margin-bottom: 8px; }
+.start { background: #059669; color: #fff; }
+.stop { background: #dc2626; color: #fff; }
+#status { color: #555; font-size: 12px; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<button id="btn" class="start">开始抢购</button>
+<button id="reload" style="background:#e5e7eb">手动刷新页面</button>
+<div id="status">等待启动...</div>
+<script src="popup.js"></script>
+</body>
+</html>
