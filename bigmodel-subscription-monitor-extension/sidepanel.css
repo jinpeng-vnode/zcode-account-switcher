@@ -1,0 +1,256 @@
+body {
+  min-width: 320px;
+  margin: 0;
+  padding: 12px;
+  color: #111827;
+  background: #ffffff;
+  font: 13px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+#count {
+  display: block;
+  margin-top: 2px;
+  color: #6b7280;
+}
+
+button {
+  padding: 7px 9px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #111827;
+  cursor: pointer;
+  font: inherit;
+}
+
+button:hover {
+  background: #f3f4f6;
+}
+
+.btn-primary {
+  background: #047857;
+  color: #ffffff;
+  border-color: #047857;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: #065f46;
+  border-color: #065f46;
+}
+
+.btn-primary:disabled {
+  background: #6b7280;
+  border-color: #6b7280;
+  cursor: default;
+}
+
+.btn-danger {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
+  font-weight: 700;
+}
+
+.btn-danger:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+}
+
+.state {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.clock-card {
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.clock {
+  margin-top: 2px;
+  font: 800 30px/1.1 ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0;
+}
+
+.state.available {
+  border-color: #10b981;
+  background: #ecfdf5;
+}
+
+.state.soldout {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.state.error {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.state.busy {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.state.waf {
+  border-color: #991b1b;
+  background: #fef2f2;
+}
+
+.state.limited {
+  border-color: #ef4444;
+  background: #fff1f2;
+}
+
+.eyebrow {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.state-label {
+  margin-top: 3px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.state.available .state-label {
+  color: #047857;
+}
+
+.state.soldout .state-label {
+  color: #b45309;
+}
+
+.state.error .state-label {
+  color: #b91c1c;
+}
+
+.state.busy .state-label {
+  color: #dc2626;
+}
+
+.state.waf .state-label {
+  color: #991b1b;
+}
+
+.state.limited .state-label {
+  color: #be123c;
+}
+
+.state-reason,
+.state-time {
+  margin-top: 5px;
+  color: #4b5563;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.settings {
+  display: grid;
+  gap: 8px;
+}
+
+.settings label {
+  display: grid;
+  gap: 4px;
+  color: #4b5563;
+}
+
+select {
+  width: 100%;
+  padding: 7px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #111827;
+  font: inherit;
+}
+
+h2 {
+  margin: 14px 0 6px;
+  font-size: 13px;
+}
+
+.products {
+  display: grid;
+  gap: 6px;
+}
+
+.metrics {
+  display: grid;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.metric-row strong {
+  font-weight: 700;
+}
+
+.metric-row span {
+  color: #4b5563;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.product {
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.product strong {
+  display: block;
+}
+
+.product span {
+  display: block;
+  color: #6b7280;
+}
+
+.product .signal {
+  margin-top: 3px;
+  color: #111827;
+  font-weight: 700;
+}
+
+pre {
+  max-height: 260px;
+  margin: 0;
+  padding: 8px;
+  overflow: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #111827;
+  color: #f9fafb;
+  font: 11px/1.45 ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+}

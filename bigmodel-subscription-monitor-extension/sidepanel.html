@@ -1,64 +1,93 @@
 <!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font: 13px/1.5 system-ui, sans-serif; padding: 12px; background: #f8fafc; color: #1e293b; }
-h1 { font-size: 15px; margin-bottom: 12px; }
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>BigModel Monitor</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <strong>BigModel Monitor</strong>
+        <span id="count">0 logs</span>
+      </div>
+      <button id="clear" type="button">清空</button>
+    </header>
 
-.timer-box { background: #0f172a; color: #22d3ee; border-radius: 8px; padding: 16px; text-align: center; margin-bottom: 12px; }
-.timer-box .label { font-size: 11px; color: #94a3b8; margin-bottom: 4px; }
-.timer-box .countdown { font: bold 28px "JetBrains Mono", "Fira Code", monospace; letter-spacing: 1px; }
+    <section class="clock-card">
+      <div class="eyebrow">北京时间</div>
+      <div id="clock" class="clock">--:--:--.---</div>
+      <div id="timing-hint" class="state-reason">等待耗时样本</div>
+    </section>
 
-.status-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding: 8px 12px; border-radius: 6px; background: #fff; border: 1px solid #e2e8f0; }
-.status-dot { width: 8px; height: 8px; border-radius: 50%; }
-.status-dot.active { background: #22c55e; animation: pulse 1.5s infinite; }
-.status-dot.idle { background: #94a3b8; }
-.status-text { font-size: 13px; font-weight: 500; }
-@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    <section id="captcha-card" class="state unknown" style="display:none">
+      <div class="eyebrow">验证码状态</div>
+      <div id="captcha-label" class="state-label">无</div>
+      <div id="captcha-detail" class="state-reason"></div>
+    </section>
 
-.section { margin-bottom: 12px; }
-.section-title { font-size: 11px; font-weight: 600; text-transform: uppercase; color: #64748b; margin-bottom: 6px; }
+    <section id="purchase-card" class="state unknown">
+      <div class="eyebrow">是否可以购买</div>
+      <div id="purchase-label" class="state-label">未知</div>
+      <div id="purchase-reason" class="state-reason">等待 batch-preview 返回</div>
+      <div id="purchase-time" class="state-time"></div>
+    </section>
 
-.products { list-style: none; }
-.products li { display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; background: #fff; border: 1px solid #e2e8f0; border-radius: 5px; margin-bottom: 4px; font-size: 12px; }
-.badge { font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
-.badge.available { background: #dcfce7; color: #166534; }
-.badge.soldout { background: #fee2e2; color: #991b1b; }
+    <section class="actions">
+      <button id="auto-purchase" type="button" class="btn-primary">开始自动抢购</button>
+      <button id="scroll" type="button">滚到套餐区</button>
+      <button id="refresh" type="button">刷新当前页一次</button>
+      <button id="export" type="button">导出日志 JSON</button>
+    </section>
 
-.logs { max-height: 160px; overflow-y: auto; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px; font: 11px/1.6 monospace; color: #475569; }
-.logs:empty::after { content: "暂无日志"; color: #94a3b8; }
+    <section class="settings">
+      <h2>优先配置</h2>
+      <label>
+        套餐优先级
+        <select id="tier-priority">
+          <option value="pro,max,lite">Pro > Max > Lite</option>
+          <option value="max,pro,lite">Max > Pro > Lite</option>
+          <option value="lite,pro,max">Lite > Pro > Max</option>
+          <option value="pro,lite,max">Pro > Lite > Max</option>
+        </select>
+      </label>
+      <label>
+        自动跳转顺序
+        <select id="period-priority">
+          <option value="quarter,month,year">连续包季 > 连续包月 > 连续包年</option>
+          <option value="month,quarter,year">连续包月 > 连续包季 > 连续包年</option>
+          <option value="year,quarter,month">连续包年 > 连续包季 > 连续包月</option>
+          <option value="month,year,quarter">连续包月 > 连续包年 > 连续包季</option>
+        </select>
+      </label>
+    </section>
 
-.btn { width: 100%; padding: 10px; border: none; border-radius: 6px; font: bold 13px system-ui; cursor: pointer; margin-top: 8px; }
-.btn.start { background: #059669; color: #fff; }
-.btn.stop { background: #dc2626; color: #fff; }
-</style>
-</head>
-<body>
-<h1>BigModel 抢购监控</h1>
+    <section>
+      <h2>自动抢购</h2>
+      <div id="auto-purchase-log" class="state-reason">未启动</div>
+    </section>
 
-<div class="timer-box">
-  <div class="label">距下次刷新</div>
-  <div class="countdown" id="countdown">--:--:---</div>
-</div>
+    <section>
+      <h2>商品状态</h2>
+      <div id="products" class="products">暂无商品状态</div>
+    </section>
 
-<div class="status-row">
-  <span class="status-dot idle" id="dot"></span>
-  <span class="status-text" id="statusText">等待启动</span>
-</div>
+    <section>
+      <h2>请求耗时与线路</h2>
+      <div id="latency" class="metrics">暂无 batch-preview 耗时</div>
+    </section>
 
-<div class="section">
-  <div class="section-title">套餐状态</div>
-  <ul class="products" id="products"><li style="color:#94a3b8">等待检测...</li></ul>
-</div>
+    <section>
+      <h2>最新接口</h2>
+      <pre id="latest">暂无日志</pre>
+    </section>
 
-<div class="section">
-  <div class="section-title">操作日志</div>
-  <div class="logs" id="logs"></div>
-</div>
+    <section>
+      <h2>最近日志</h2>
+      <pre id="logs"></pre>
+    </section>
 
-<button class="btn start" id="btn">开始抢购</button>
-<script src="sidepanel.js"></script>
-</body>
+    <script src="shared.js"></script>
+    <script src="sidepanel.js"></script>
+  </body>
 </html>
